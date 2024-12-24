@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -154,6 +155,7 @@ class BillCounterScreen extends StatelessWidget {
             TextField(
               controller: controller.newDenominationController,
               keyboardType: TextInputType.number,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               style: TextStyle(color: controller.isDarkMode.value ? Colors.white : Colors.black),
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -191,6 +193,7 @@ class BillCounterScreen extends StatelessWidget {
                                   child: TextField(
                                     controller: controller.controllers[index],
                                     keyboardType: TextInputType.number,
+                                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                     style: TextStyle(color: controller.isDarkMode.value ? Colors.white : Colors.black),
                                     decoration: InputDecoration(
                                       hintText: '0',
